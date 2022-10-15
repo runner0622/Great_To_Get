@@ -1,0 +1,261 @@
+/* this make sure that every element inherits the parent box-sizing type*/
+*,
+*::before,
+*::after {
+	box-sizing: inherit;
+}
+/* width */
+::-webkit-scrollbar {
+	width: 16px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+	background: black;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+	background: white;
+
+	border-radius: 10px;
+	border: 3px solid black;
+
+	border-right: 20px;
+}
+
+// @import url("https://fonts.googleapis.com/css?family=Lato:400,700");
+
+html {
+	font-size: 1em;
+	scroll-behavior: smooth;
+	height: 100%;
+
+	@include tablet {
+		font-size: 1.1em;
+	}
+
+	@include laptop {
+		font-size: 1.2em;
+	}
+
+	@include desktop {
+		font-size: 1.3em;
+	}
+
+	// font-family: "Lato", sans-serif;
+}
+
+html,
+body {
+	margin: 0;
+}
+
+#__next {
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+}
+
+body {
+	/* by default all the block display are border-box*/
+	box-sizing: border-box;
+	/* Smoothen font which is better normal display of the font*/
+	// -webkit-font-smoothing: antialiased;
+	// -moz-osx-font-smoothing: grayscale;
+	font-family: "Roboto", sans-serif !important;
+	margin: 0;
+	overflow-x: hidden;
+	width: 100%;
+}
+
+ul {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+a {
+	text-decoration: none;
+	font-weight: 600;
+
+	&:hover {
+	}
+}
+
+p {
+	padding: 5px;
+}
+
+span {
+	display: block;
+	margin: 10px;
+
+	&.inline {
+		display: inline-block;
+	}
+}
+
+.app {
+	position: relative;
+}
+
+.relative_container {
+	position: relative;
+}
+
+.view {
+	margin: 40px;
+}
+
+[hidden] {
+	display: none !important;
+}
+
+.divider {
+	width: 100%;
+	height: 1px;
+	margin: 10px 0;
+	background: #e7ebf6;
+	background: linear-gradient(
+		to right,
+		rgba(231, 235, 246, 0.2) 0,
+		rgba(231, 235, 246, 0.8) 50%,
+		rgba(231, 235, 246, 0.2) 100%
+	);
+
+	// @include tablet {
+	// 	margin: 40px 0;
+	// }
+
+	// // laptop + desktop
+	// @include laptop {
+	// 	margin: 50px 0;
+	// }
+}
+
+input[type="text"],
+input[type="email"] {
+	border: none;
+}
+
+.input {
+	width: 100%;
+	height: 100%;
+	min-width: 200px;
+	padding: 0.5rem;
+	border-radius: 3px;
+	border: 1px solid #eee !important;
+	outline: none;
+
+	&:focus {
+		animation-name: inputActive;
+		animation-duration: 0.5s;
+		border-bottom: 2px solid yellowgreen;
+	}
+}
+
+.green {
+	color: yellowgreen;
+}
+
+input[type="submit"] {
+	background-color: $primary;
+	color: white;
+	padding: 10px;
+	border: 1px solid $primary;
+	transition: all 0.3s ease;
+	cursor: pointer;
+
+	&:hover {
+		background-color: white;
+		color: $black;
+	}
+}
+
+textarea {
+	border: none;
+	border-bottom: 2px solid transparent;
+	font: $font;
+	outline: none;
+	width: 100%;
+	min-height: 150px;
+	resize: none;
+	grid-area: four;
+	border-radius: 3px;
+	padding: 10px;
+	border: 1px solid #eee;
+	&:focus {
+		animation-name: inputActive;
+		animation-duration: 0.5s;
+		border-bottom: 2px solid yellowgreen;
+	}
+}
+
+.block {
+	margin: 0 30px;
+
+	@include tablet {
+		margin: 0 40px;
+	}
+
+	@include laptop {
+		margin: 0 50px;
+	}
+
+	@include desktop {
+		margin: 0 60px;
+	}
+}
+
+.title__lander {
+	font-weight: bold;
+	font-size: 1em;
+	width: 100%;
+	text-align: center;
+	background-color: tint($red, 30%);
+	color: $white;
+	padding: 10px;
+	text-decoration: double;
+
+	&-about {
+		background-color: tint(teal, 30%);
+	}
+
+	&-shop {
+		background-color: $success;
+	}
+
+	&-checkout {
+		background-color: $blue;
+	}
+
+    &-recent{
+        background-color: tint($primary, 10);
+    }
+}
+
+.w500 {
+	@include tablet {
+		max-width: 90%;
+	}
+
+	@include laptop {
+		max-width: 400px;
+	}
+
+	@include desktop {
+		max-width: 500px;
+	}
+}
+
+.error-page {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+    font-size: larger;
+    font-weight: bold;
+	width: 100%;
+	height: 100% !important;
+}

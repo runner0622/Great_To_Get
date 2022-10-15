@@ -1,0 +1,68 @@
+.small_introduction {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+
+	background: linear-gradient(
+			rgba(255, 255, 255, 0.253),
+			rgba(0, 0, 0, 0.541)
+		),
+		$SMALL_INTRODUCTION;
+
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+	background-position: center;
+	background-size: cover;
+	text-align: center;
+
+	p {
+		margin: 0;
+		text-align: left;
+	}
+}
+
+.profile_img {
+	> img {
+		margin: 10px;
+		box-shadow: $shadow_400;
+		border-radius: 50%;
+		width: 200px;
+		height: 200px;
+	}
+}
+
+.introduction {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+
+    background-color: rgba(0, 0, 0, 0.191);
+    backdrop-filter: blur(2px);
+    color: rgb(209, 209, 209);
+	width: 90%;
+	margin: 30px;
+
+	// box-shadow: $shadow_x300;
+
+	// color: white;
+	&:hover {
+		cursor: pointer;
+		// box-shadow: $shadow_x400;
+	}
+
+	@include tablet {
+		width: 100%;
+		padding: 20px;
+		width: 600px;
+	}
+
+	@include laptop {
+		width: 800px;
+	}
+
+	@include desktop {
+		width: 1000px;
+	}
+}

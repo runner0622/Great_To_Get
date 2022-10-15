@@ -1,0 +1,103 @@
+.loginwrapper{
+    // @include test;
+    
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+
+    background: $glass;
+
+    font-size: 1.3em;
+}
+
+.centerwrapper{
+    display: flex;
+    flex-direction: column;
+
+
+    // glass effect
+    @include glasseffect();
+
+
+    border-radius: 10px;
+    border-radius: 5px;
+    padding: 40px;
+
+    &__adminlogin{
+        color: white;
+        font-weight: 600;
+        font-size: 1.8em;
+    }
+
+    &__section{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        padding-top: 20px;
+        width: 800px;
+
+        
+        &__input{
+            padding: 20px 5px;
+            width: 100%;
+            text-decoration: none;
+            cursor: pointer;
+            outline: none;
+            border: none;
+
+            color: rgba(white, 0.9);
+            border-bottom: 2px solid white;
+            caret-color: white;
+            // border: 1px solid tint(black, 93%);
+
+            
+            font-size: 1.2em;
+            background: none;
+            &::placeholder{
+                color: shade(white, 10%);
+            }
+        }
+
+        
+        &__button{
+            // @include test;
+            color: white;
+
+            border: none;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 1em;
+
+            // start --> glass
+            background: rgba( 255, 255, 255, 0.05 );
+            // box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+            backdrop-filter: blur( 5px );
+            -webkit-backdrop-filter: blur( 10px );
+            border-radius: 5px;
+            // end --> glasseffect
+
+            margin: 10px 0;
+            padding: 15px 0px;
+            width: 100%;
+            cursor: pointer;
+            
+            transition: all ease-out 250ms;
+
+            &:hover{
+                // inverse current color with background color
+                transition: all ease-in 250ms;
+            }
+            
+        }
+
+    }
+
+    
+
+
+
+}

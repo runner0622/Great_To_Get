@@ -1,0 +1,15 @@
+.slide_effect {
+	&::after {
+		content: "";
+		display: block;
+		border-bottom: 3px solid $SOCIAL_COLOR;
+		width: 0;
+		left: 0;
+		-webkit-transition: 1s ease;
+		transition: 1s ease;
+	}
+
+	&:hover::after {
+		width: 100%;
+	}
+}

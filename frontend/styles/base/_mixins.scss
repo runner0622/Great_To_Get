@@ -1,0 +1,77 @@
+@mixin sectionPadding {
+	padding: 60px 0;
+}
+
+@mixin test {
+	border: 1px solid violet;
+}
+
+@mixin test1 {
+	border: 1px solid palegreen;
+}
+
+@mixin test2 {
+	border: 1px solid aqua;
+}
+
+@mixin redColor {
+	color: red;
+}
+
+@mixin ajCenter {
+	align-content: center;
+	justify-content: center;
+}
+
+@mixin ajSelf {
+	align-self: center;
+	justify-self: center;
+}
+
+@mixin inverse($color, $bgColor) {
+	color: $bgColor;
+	background-color: $color;
+}
+
+@mixin button-outline($outline, $textcolor) {
+	border: 1px solid $outline;
+	color: $outline;
+
+	&:hover {
+		background-color: $outline;
+		color: $textcolor;
+	}
+}
+
+@mixin button-solid($color, $textcolor) {
+	color: $textcolor;
+	background-color: $color;
+	border: 1px solid $color;
+}
+
+@mixin swap($foreground, $background) {
+	color: $foreground;
+	background-color: $background;
+}
+
+@mixin glasseffect() {
+	// glasseffect
+	background: rgba(255, 255, 255, 0.1);
+	box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+	backdrop-filter: blur(5px);
+	-webkit-backdrop-filter: blur(10px);
+	border-radius: 10px;
+}
+
+
+@mixin stroke($size: 1px, $color: #000) {
+    text-shadow:
+      -#{$size} -#{$size} 0 $color,
+       0        -#{$size} 0 $color,
+       #{$size} -#{$size} 0 $color,
+       #{$size}  0        0 $color,
+       #{$size}  #{$size} 0 $color,
+       0         #{$size} 0 $color,
+      -#{$size}  #{$size} 0 $color,
+      -#{$size}  0        0 $color;
+  }

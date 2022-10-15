@@ -1,0 +1,84 @@
+.btn_inv_red {
+	border: 2px solid $red;
+	margin: 5px;
+	padding: 10px;
+	text-align: center;
+	font-size: 0.8em;
+	color: $red;
+
+	cursor: pointer;
+
+	&:hover {
+		color: $white;
+		background-color: $red;
+	}
+}
+
+.button-purple {
+	color: $purple;
+
+	border: 3px solid $purple;
+	border-radius: 5px;
+
+	display: flex;
+	align-items: center;
+	justify-content: center;
+
+	background: linear-gradient(to left, white 50%, $purple 50%);
+	background-size: 200% 120%;
+	background-position: right;
+	transition: all 0.5s ease-out;
+
+	text-align: center;
+	font-size: 0.8em;
+
+	cursor: pointer;
+}
+
+.button-purple:hover {
+	background-position: left;
+	color: white;
+}
+
+
+.button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 3px;
+    padding: 8px;
+    font-size: 1.3em;
+    transition: all 250ms ease-out;
+    text-align: center;
+    &:hover {
+        box-shadow: $shadow-200;
+        transition: all 250ms ease-in;
+    }
+
+    &-save {
+        flex: 1;
+        @include button-outline(tint($success, 15%), white);
+    }
+    
+    &-delete {
+        flex: 1;
+        background-color: white;
+        @include button-outline($red, white);
+    }
+    
+    &__status {
+        flex: 2;
+        &-true {
+            @include button-outline(shade($success, 5), white);
+        }
+        &-false {
+            @include button-outline(shade($warning, 5), white);
+        }
+    }
+    
+    &-clear {
+        flex: 1;
+        @include button-outline(tint(blue, 50), white);
+    }
+}
+

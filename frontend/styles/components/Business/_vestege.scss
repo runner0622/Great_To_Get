@@ -1,0 +1,59 @@
+.vestege-heading {
+	padding-left: 2rem;
+	text-align: center;
+	margin: 2rem auto;
+}
+
+.vestege_container {
+	// & hr {
+	//   margin: 0;
+	//   width: 80%;
+	//   margin-left: auto;
+	//   margin-right: auto;
+	// }
+	padding: 2rem 0;
+}
+
+.vestege-info {
+	display: flex;
+	margin: 1rem auto;
+	align-items: center;
+	// background: #ebebeb;
+
+    box-shadow: $shadow_x200;
+	border-radius: 5px;
+	transition-duration: 500ms;
+	padding: 1rem;
+	font-weight: 300;
+
+	&:hover {
+		box-shadow: $shadow_x300;
+	}
+
+	&-image {
+		background: $VESTEGE_INFO_IMAGE;
+		background-repeat: no-repeat;
+		background-position: center;
+		background-size: contain;
+		flex-grow: 1;
+		flex-basis: 0;
+	}
+	&-content {
+		font-size: 0.8rem;
+		text-align: justify;
+		padding-left: 2rem;
+		padding-right: 2rem;
+		flex-grow: 1;
+		flex-basis: 0;
+	}
+
+
+    // @include tablet{
+
+    // }
+}
+
+.vestege-video {
+	border-radius: 50%;
+	padding: 1rem;
+}

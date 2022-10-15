@@ -1,0 +1,127 @@
+.productposts {
+	display: grid;
+	margin: 50px;
+
+	grid-gap: 20px;
+	grid-auto-rows: minmax(300px, auto);
+	grid-template-columns: repeat(4, 1fr);
+
+
+	&__item {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+        height: 200px;
+
+		border: 1px solid tint(black, 85);
+		border-radius: 5px;
+		box-shadow: $shadow-100;
+
+		padding: 30px;
+		color: $purple;
+
+		cursor: pointer;
+
+		> div {
+			width: 100%;
+            padding: 15px;
+
+		}
+
+        &:hover{
+            box-shadow: 0px 3px 1px rgba(0, 0, 0, 0.15);
+        }
+
+        &__id {
+            color: $red;
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            font-size: 1em;
+            border-bottom: 1px solid tint($purple, 90);
+        }
+
+		&__title {
+			flex: 1 0 0;
+			display: flex;
+			flex-direction: column;
+			justify-content: flex;
+			align-items: center;
+			text-align: center;
+
+            border-bottom: 1px solid tint($purple, 90);
+			font-size: 1em;
+			color: $purple;
+
+
+		}
+
+		&__main {
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+			align-items: center;
+
+			// &__createicon {
+            //     transform: rotate(-90deg);
+            //     transition: transform ease-out 500ms;
+			// 	&:hover{
+            //         transform: rotate(90deg);
+            //         transition: transform ease-in 500ms;
+            //     }
+			// }
+            
+			&__createtext {
+				color: $purple;
+                font-weight: bold;
+                text-decoration: none;
+			}
+		}
+
+        &__inner {
+			flex: 2 0 0;
+
+			display: flex;
+			flex-direction: row;
+			justify-content: space-evenly;
+			align-items: center;
+            border-bottom: 1px solid tint($purple, 90);
+
+			&__edit, &__delete {
+				display: flex;
+                padding: 10px 15px;
+                border-radius: 5px;
+				transform: scale(1);
+				transition: transform 250ms ease-out;
+
+				&:hover {
+					transform: scale(1.1);
+					transition: transform 250ms ease-in;
+				}
+			}
+
+            &__edit{
+                color: white;
+                background-color: $success;
+
+            }
+
+            &__delete{
+                color: white;
+                background-color: $red;
+            }
+
+		}
+
+		&__timestamp {
+			flex: 1 0 0;
+			display: flex;
+			justify-content: end;
+			align-items: end;
+            
+
+			font-size: 1em;
+		}
+	}
+}

@@ -1,0 +1,373 @@
+// checkout  -> checkout__form
+// checkout  -> shopcard__group
+
+.checkout {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	height: 100%;
+	min-height: 80vh;
+	width: 100%;
+	align-items: center;
+
+	color: rgba(0, 0, 0, 0.9);
+
+	@include laptop {
+		flex-direction: row;
+		align-items: flex-start;
+	}
+}
+
+.checkout__form {
+	// start parent inheritance
+	// flex: 1;
+	height: 100%;
+
+	margin-top: 20px;
+	margin-bottom: 20px;
+
+	@include laptop {
+		margin: 0;
+	}
+
+	// end parent inheritance
+}
+.shopcard__group {
+	// start parent inheritance
+	// flex: 4;
+	// end parent inheritance
+
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	justify-content: center;
+
+	width: 100%;
+	height: 100%;
+
+	@include laptop {
+		flex-direction: row;
+		flex-wrap: wrap;
+		justify-content: center;
+		align-items: center;
+	}
+
+	@include desktop {
+		align-items: flex-start;
+		justify-content: flex-start;
+	}
+}
+
+.shopcard {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	box-shadow: $shadow_all;
+	width: 100%;
+	height: 200px;
+	margin: 10px 0;
+
+	@include tablet {
+		margin: 0px 10px 20px 10px;
+		height: 200px;
+		width: 300px !important;
+	}
+
+	@include laptop {
+		height: 220px;
+		width: 320px !important;
+	}
+
+	@include desktop {
+		height: 240px;
+		width: 380px !important;
+	}
+
+	// override
+	.divider {
+		margin: 5px 0;
+	}
+}
+
+.shopcard__title {
+	width: 100%;
+	margin: 0 !important;
+
+	padding: 10px;
+	text-align: center;
+
+	color: $success;
+
+	text-transform: lowercase;
+}
+
+.shopcard__main {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 100%;
+}
+
+.shopcard__image {
+	padding: 10px !important;
+	> img {
+		width: 100px;
+		height: 100px;
+		box-shadow: $shadow_200;
+
+		@include tablet {
+			width: 120px;
+			height: 120px;
+		}
+
+		@include laptop {
+			width: 130px;
+			height: 130px;
+		}
+
+		@include desktop {
+			width: 150px;
+			height: 150px;
+		}
+	}
+}
+
+.shopcard__info {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-direction: column;
+	padding: 0 10px;
+	width: 100%;
+
+	> div {
+		margin: 5px;
+	}
+
+	&__title {
+		flex: 1;
+		color: #4e4e4e;
+		font-weight: bold;
+	}
+
+	&__price {
+		display: flex;
+		flex-direction: row;
+		justify-content: center;
+
+		> div {
+			display: block;
+			font-size: 1.2em;
+			font-weight: bold;
+			&::after {
+				content: "₹";
+			}
+		}
+
+		&__base {
+			text-decoration: line-through;
+			color: #7c7c7c;
+		}
+
+		&__discount {
+			color: $success;
+			margin-left: 30px;
+		}
+	}
+
+	&__description {
+		text-transform: none;
+		letter-spacing: 0;
+		color: #4e4e4e;
+		font-size: 0.9em;
+		line-height: 1.6em;
+		text-align: justify;
+		height: 200px;
+	}
+
+	@include tablet {
+		height: 120px;
+	}
+
+	@include laptop {
+		height: 130px;
+	}
+
+	@include desktop {
+		height: 150px;
+	}
+}
+
+
+.shop-page{
+    width: 100%;
+    min-height: 80vh;
+}
+
+.shopcard__button {
+	display: flex;
+	cursor: pointer;
+	color: white;
+	width: 100%;
+	background-color: tint(green, 30%);
+	// border-radius: 5px;
+
+	padding: 10px;
+	text-align: center;
+	align-items: center;
+	justify-content: center;
+
+	> svg {
+		margin: 10px !important;
+	}
+
+	&:hover {
+		background-color: green;
+	}
+
+	&-exists {
+		background-color: shade($success, 30%);
+	}
+}
+
+.shopcard__total {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 100%;
+	margin: 0 !important;
+	padding: 5px;
+
+	&::after {
+		content: "₹";
+	}
+}
+
+.indec {
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	align-items: center;
+
+	// width: 100px;
+
+	width: 100%;
+
+	button {
+		cursor: pointer;
+		margin: 5px;
+		border: 1px solid #eee;
+		color: #ddd;
+		padding: 10px;
+		border-radius: 5px;
+		background-color: white;
+	}
+
+	div {
+		width: 100%;
+		color: #ccc;
+		text-align: center;
+		outline: none;
+		border: none;
+	}
+}
+
+.cart__summary {
+	display: flex;
+	flex-direction: column;
+	width: 100%;
+	font-size: 0.8em;
+
+	text-transform: uppercase;
+
+	> div {
+		display: flex;
+		flex-direction: row;
+		justify-content: space-between;
+		align-items: center;
+		width: 100%;
+		margin-bottom: 10px;
+	}
+
+	&__quantity {
+	}
+
+	&__subtotal {
+		> .value {
+			&::before {
+				content: "₹";
+			}
+		}
+	}
+
+	&__discount {
+		> .value {
+			&::before {
+				content: "- ₹";
+			}
+		}
+	}
+
+	&__total {
+		font-size: 1.1em;
+		font-weight: bold;
+	}
+}
+
+.checkout__header {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+}
+
+.checkout__button {
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	padding: 10px 20px;
+	border-radius: 5px;
+	color: white;
+	text-transform: uppercase;
+	cursor: pointer;
+
+	&-clear {
+		background-color: tint($red, 30%);
+	}
+
+	&-track {
+		background-color: tint($success, 20%);
+	}
+
+	&-recent {
+		background-color: tint($blue, 30%);
+	}
+}
+
+.checkout__action {
+	display: flex;
+	width: 100%;
+	justify-content: center;
+	align-items: center;
+
+	> div {
+		margin: 10px;
+	}
+}
+
+.checkout__pay {
+	display: flex;
+	margin: 5px;
+	flex-direction: row;
+	justify-content: center;
+	align-items: center;
+	width: 100%;
+	padding: 10px 20px;
+	border-radius: 5px;
+	color: white;
+	text-transform: uppercase;
+	outline: none;
+	border: none;
+	cursor: pointer;
+	background-color: tint($success, 20%);
+}

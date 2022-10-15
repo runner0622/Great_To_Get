@@ -1,0 +1,13 @@
+.basic_input {
+    padding: 10px 20px;
+    text-decoration: none;
+    margin: 4px 2px;
+    cursor: pointer;
+    outline: none;
+    border: none;
+    border: 1px solid tint(black, 95%);
+
+    &::placeholder{
+        color: shade(white, 10%);
+    }
+}

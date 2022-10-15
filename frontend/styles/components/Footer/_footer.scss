@@ -1,0 +1,35 @@
+.footer {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+    background-color: black;
+    padding: 20px;
+    color: shade(white, 70%);
+
+	&_main {
+		&_social {
+			> svg {
+				width: 40px !important;
+				height: 40px;
+				margin: 5px;
+			}
+		}
+	}
+
+	&_rights {
+		display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+		width: 100%;
+        font-size: 0.8em;
+
+		justify-content: space-between;
+
+        > div {
+            margin: 0 30px;
+        }
+
+	}
+}

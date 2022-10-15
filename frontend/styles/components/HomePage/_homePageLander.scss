@@ -1,0 +1,83 @@
+.home_page {
+	width: 100%;
+	// height: 100%;
+}
+
+.lander_homepage_overlay {
+	display: flex;
+	align-items: center;
+}
+
+.lander_homepage {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+
+	height: 100vh;
+	background: $LANDER_HOMEPAGE;
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+	background-position: center;
+	background-size: cover;
+	filter: grayscale(80%);
+
+	color: white !important;
+
+	&_text {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+
+		color: white;
+
+		&-header {
+			// text stroke
+			@include stroke(2px, rgba(0, 0, 0, 0.1));
+
+			color: white;
+			font-size: 2em;
+			font-weight: 600;
+
+			text-transform: uppercase;
+		}
+		&-subheader {
+			@include stroke(1px, rgba(0, 0, 0, 0.1));
+		}
+
+		@include tablet {
+			&-header {
+				font-size: 2.5em;
+			}
+			&-subheader {
+				font-size: 1.4em;
+			}
+		}
+
+		@include desktop {
+			&-header {
+				font-size: 3em;
+			}
+			&-subheader {
+				font-size: 1.8em;
+			}
+		}
+	}
+
+	&_logo {
+		width: 10rem;
+		height: 10rem;
+		border: 1px solid rgba(0, 0, 0, 0.1);
+
+		background: $LANDER_HOMEPAGE_LOGO;
+		background-repeat: no-repeat;
+		background-position: center;
+		background-size: cover;
+		border-radius: 400px;
+	}
+
+	@include laptop {
+		padding-right: 100px;
+		justify-content: right;
+	}
+}

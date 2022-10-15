@@ -1,0 +1,64 @@
+.connect-with-us {
+  position: fixed;
+  top: 50%;
+  left: -60px;
+  transform: translateY(-50%);
+  display: flex;
+  background-image: radial-gradient(
+    circle 820px at 9.1% 22.8%,
+    rgba(216, 247, 229, 1) 0%,
+    rgba(249, 238, 238, 1) 74.7%
+  );
+  padding: 15px;
+  z-index: 100;
+  border-top-right-radius: 50%;
+  border-bottom-right-radius: 50%;
+  gap: 10px;
+  transition-duration: 0.7s;
+  opacity: 1;
+  mix-blend-mode: hard-light;
+
+  &:hover {
+    left: 0px;
+  }
+
+  &-text {
+    display: flex;
+    align-items: center;
+    writing-mode: vertical-rl;
+    text-orientation: upright;
+    text-transform: uppercase;
+    font-weight: 600;
+    cursor: pointer;
+    text-align: center;
+  }
+}
+
+.connect-with-us-anand,
+.connect-with-us-pallavi {
+  //   background: #c2c2c2;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+
+  & span {
+    font-weight: 600;
+    text-align: center;
+    margin-bottom: 10px;
+  }
+
+  & a {
+    text-decoration: none;
+    color: black;
+    transition-duration: 300ms;
+    & svg {
+      font-size: 15px;
+      transition-duration: 0.3s;
+      color: black;
+
+      &:hover {
+        transform: scale(1.5);
+      }
+    }
+  }
+}

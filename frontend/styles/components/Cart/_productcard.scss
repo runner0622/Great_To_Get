@@ -1,0 +1,94 @@
+.imagecard {
+	display: flex;
+	align-items: center;
+	flex-direction: column;
+	box-shadow: $shadow_all;
+	padding: 15px;
+	width: 300px;
+	margin: 20px;
+}
+
+.imagecard__image {
+	padding: 10px !important;
+	> img {
+		width: 280px;
+		height: 240px;
+		box-shadow: $shadow_200;
+	}
+}
+
+.imagecard__info {
+	display: flex;
+	flex-direction: column;
+	width: 100%;
+
+	> div {
+		margin: 5px;
+	}
+
+	&__title {
+		flex: 1;
+		color: #4e4e4e;
+		font-weight: bold;
+	}
+
+	&__price {
+		display: flex;
+		flex-direction: row;
+
+		> div {
+			display: block;
+			font-size: 1.5em;
+			font-weight: bold;
+			&::after {
+				content: "₹";
+			}
+		}
+
+		&__base {
+			text-decoration: line-through;
+			color: #7c7c7c;
+		}
+
+		&__discounted {
+			color: $success;
+			margin-left: 30px;
+		}
+	}
+
+	&__description {
+		text-transform: none;
+		letter-spacing: 0;
+		color: #4e4e4e;
+		font-size: 0.9em;
+		line-height: 1.6em;
+		text-align: justify;
+		height: 200px;
+	}
+}
+
+.imagecard__button {
+	display: flex;
+	cursor: pointer;
+	color: white;
+	width: 100%;
+	background-color: tint(green, 30%);
+	// border-radius: 5px;
+
+	padding: 10px;
+	text-align: center;
+	align-items: center;
+	justify-content: center;
+
+	> svg {
+		margin: 10px !important;
+	}
+
+	&:hover {
+		background-color: green;
+	}
+
+	&-exists {
+		background-color: shade($success, 30%);
+	}
+}

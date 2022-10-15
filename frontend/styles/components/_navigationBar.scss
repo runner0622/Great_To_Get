@@ -1,0 +1,175 @@
+$COLOR: shade(white, 1%);
+
+.navbar__wrapper {
+	display: flex;
+	box-shadow: $shadow_200;
+	flex-direction: column;
+	width: 100%;
+
+	@include tablet {
+		flex: 2;
+
+		width: auto;
+		padding-left: 50px;
+		padding-right: 50px;
+		flex-direction: row;
+		align-items: center;
+		justify-content: space-between;
+	}
+}
+.navbar-block {
+	width: 100%;
+	box-shadow: $shadow_200;
+
+	// background-color: black;
+}
+
+.navbar {
+	display: flex;
+	flex-direction: column;
+	background-color: $primary;
+	padding: 0 10px !important;
+	@include tablet {
+		padding: 0 30px !important;
+		flex-direction: row;
+	}
+}
+
+.navbar__items {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: flex-end;
+	width: 100%;
+
+	a {
+		color: white !important;
+	}
+
+	@include tablet {
+		flex: 8;
+
+		flex-direction: row;
+		margin: 10px;
+	}
+}
+
+.navbar__item {
+	// background-color: $white;
+	user-select: none;
+	display: flex;
+	align-items: center;
+	flex-direction: column;
+	justify-content: center;
+	border-bottom: 1px solid #eee;
+	font-weight: normal;
+	color: white;
+
+	// height: 50px;
+	width: 100%;
+
+	// margin: 10px;
+	padding: 10px;
+
+	cursor: pointer;
+	text-align: center;
+	text-transform: capitalize;
+	font-size: 1em;
+	box-sizing: border-box;
+
+	&__about {
+		border: none;
+	}
+
+	&:visited {
+		background-color: rgb(56, 34, 255);
+	}
+
+	&:hover {
+		background-color: white;
+		color: black;
+	}
+
+	@include tablet {
+		max-width: 100px;
+		border: none;
+		border-bottom: 3px solid #eee;
+
+		&:hover {
+			border-bottom: 3px solid $red;
+			background-color: $primary;
+			color: white;
+		}
+
+		margin: 10px;
+	}
+}
+
+.navbar__action {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	margin: 15px;
+
+	a {
+		font-size: 1.5em;
+		font-weight: bolder;
+		color: white !important;
+	}
+
+	&__logo {
+		display: flex;
+		justify-content: center;
+
+		align-items: center;
+
+		border-radius: 50%;
+
+		transition: all 0.5s ease-out;
+
+		img {
+			background-image: $COMPANY_LOGO;
+			background-size: cover;
+			background-repeat: no-repeat;
+			background-position: center;
+			border-radius: 50%;
+
+			width: 100%;
+			height: 100%;
+
+			width: 70px;
+			height: 70px;
+
+			@include tablet {
+				max-height: 100px;
+			}
+		}
+
+		&:hover {
+			cursor: pointer;
+			transform: scale(1);
+			transition: all 0.3s ease-in;
+		}
+	}
+
+	&__hamburger {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+
+		color: white;
+		border: 1px solid white;
+		padding: 10px;
+		border-radius: 5px;
+		cursor: pointer;
+		width: 50px;
+		height: 50px;
+	}
+
+	@include tablet {
+		margin: 10px 10px;
+		&__hamburger {
+			display: none;
+		}
+	}
+}

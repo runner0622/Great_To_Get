@@ -1,0 +1,53 @@
+// container > sidebar
+.sidebar {
+	// flex: 0 0 auto; // sidebar sticky
+	flex-basis: 15vw;
+
+	display: flex;
+	// background-color: $dark;
+	flex-direction: column;
+	// justify-content: center;
+	overflow: none;
+
+	> div {
+		font-weight: bold;
+	}
+
+	&__menu {
+		// @include test;
+		flex: 8 0 0;
+		font-size: 0.8em;
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+	}
+	&__logo {
+		// @include test;
+
+		font-size: 40px;
+		font-weight: bold;
+		color: $purple;
+		border-bottom: 3px double $purple;
+		// border: 3px solid $grey;
+
+		cursor: pointer;
+
+		flex: 1 0 0;
+		font-size: 1em;
+
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		align-content: center;
+	}
+	&__action {
+		// @include test;
+		flex: 1 0 0;
+		font-size: 0.8em;
+		text-align: center;
+
+		justify-content: center;
+		align-items: center;
+		align-content: center;
+	}
+}

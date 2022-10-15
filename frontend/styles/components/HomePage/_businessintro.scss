@@ -1,0 +1,44 @@
+.business_intro_container {
+	background: $BUSINESS_INTRO_BG;
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: cover;
+	background-attachment: fixed;
+
+	display: flex;
+	align-items: center;
+	justify-content: center;
+
+	@include tablet {
+		padding: 30px;
+	}
+}
+
+.business_intro {
+	background: rgba(0, 0, 0, 0.6);
+	color: white;
+
+	padding: 20px;
+
+	max-width: 1000px;
+
+	> h2 {
+        padding: 20px;
+		border-bottom: 2px solid white;
+	}
+
+	&_header {
+		text-align: center;
+		text-transform: uppercase;
+	}
+	&_content {
+		margin-left: 0;
+		padding-left: 0;
+		line-height: 1.4;
+		font-size: 0.8rem;
+	}
+
+	@include laptop {
+		padding: 30px;
+	}
+}

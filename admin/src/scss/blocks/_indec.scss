@@ -1,0 +1,27 @@
+.indec{
+    display: flex;
+    flex-direction: row;
+    flex: 1 0 0;
+    justify-content: space-between;
+
+    > button {
+        cursor: pointer;
+        margin: 5px;
+        border: 1px solid #eee;
+        color: #ddd;
+        padding: 10px;
+        border-radius: 5px;
+        background-color: white;
+
+    }
+
+    > input {
+        color: #ccc;
+        text-align: center;
+        outline: none;
+        border: none
+    }
+
+
+
+}

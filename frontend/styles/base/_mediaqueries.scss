@@ -1,0 +1,27 @@
+// => @media (min-width: 640px) { ... }
+@mixin mobile {
+	@media (min-width: 640px) {
+		@content;
+	}
+}
+
+// => @media (min-width: 768px) { ... }
+@mixin tablet {
+	@media (min-width: 768px) and (hover: hover) and (pointer: fine) {
+		@content;
+	}
+}
+
+// => @media (min-width: 1024px) { ... }
+@mixin laptop {
+	@media (min-width: 1024px) and (hover: hover) and (pointer: fine) {
+		@content;
+	}
+}
+
+// => @media (min-width: 1280px) { ... }
+@mixin desktop {
+	@media (min-width: 1280px) and (hover: hover) and (pointer: fine) {
+		@content;
+	}
+}

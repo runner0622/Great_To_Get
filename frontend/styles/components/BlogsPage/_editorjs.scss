@@ -1,0 +1,59 @@
+.editor-page {
+	display: flex;
+	justify-content: center;
+    min-height: 80vh;
+}
+
+.editorjs__wrapper {
+	padding: 20px;
+	margin: 40px;
+	box-shadow: $shadow_x200;
+
+	display: flex;
+	align-items: center;
+	justify-content: center;
+
+    @include tablet{
+        max-width: 80%;
+    }
+
+}
+
+#editorjs {
+	// zoom: 1;
+	font-size: 20px;
+}
+
+figure {
+	background-color: white !important;
+}
+
+.ce-block__content,
+.ce-toolbar__content {
+	padding: 5px;
+	max-width: calc(100vw - 100px) !important;
+}
+.cdx-block {
+	padding: 5px;
+	max-width: 100vw !important;
+}
+
+// .ce-inline-tool {
+// 	// @include test;
+// }
+
+.ce-toolbox__button {
+	padding: 10px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.ce-block__content {
+	box-shadow: $shadow_x100;
+	padding: 10px;
+}
+
+.image-tool--withBackground .image-tool__image {
+	background-color: white !important;
+}
