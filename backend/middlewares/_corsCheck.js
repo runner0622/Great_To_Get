@@ -1,4 +1,4 @@
-const cors = require("cors");
+import cors from 'cors';
 
 const _allowPrivateCORS = (req, res, next) => {
     
@@ -27,4 +27,4 @@ const _allowPublicCORS = (req, res, next) => {
     next();
 }
 
-module.exports = { _allowPrivateCORS, _allowPublicCORS }
+export { _allowPrivateCORS, _allowPublicCORS };

@@ -1,5 +1,5 @@
-const { logger} = require("../../improve/logger");
-const log = logger(__filename);
+import logger from '../../improve/logger';
+const log = logger();
 
 
 const test2 = async (req, res, next) => {
@@ -11,4 +11,4 @@ const test2 = async (req, res, next) => {
 	});
 };
 
-module.exports = { test2 };
+export default { test2 };

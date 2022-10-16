@@ -1,6 +1,6 @@
-const ContactModel = require("../../models/contact.model");
-const { typeMatch, isEmpty } = require("../../improve/improve");
-const { randomHash } = require("../../improve/encryption");
+import ContactModel from '../../models/contact.model';
+import { typeMatch, isEmpty } from '../../improve/improve';
+import { randomHash } from '../../improve/encryption';
 
 const createContact = async (req, res, next) => {
 	const { contact_name, contact_phone, contact_message, contact_email } = req.body ?? {};
@@ -97,4 +97,4 @@ const createContact = async (req, res, next) => {
 	}
 };
 
-module.exports = { createContact };
+export default  createContact ;

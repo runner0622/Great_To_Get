@@ -1,6 +1,6 @@
-const OrderModel = require("../../models/order.model");
-const { typeMatch, isEmpty } = require("../../improve/improve");
-const { randomHash } = require("../../improve/encryption");
+import OrderModel from '../../models/order.model';
+import { typeMatch, isEmpty } from '../../improve/improve';
+import { randomHash } from '../../improve/encryption';
 // with fields { id ,order_name,paid status,amount paid,items ordered(products ordered),address}
 
 const createOrder = async (req, res, next) => {
@@ -48,4 +48,4 @@ const createOrder = async (req, res, next) => {
 	}
 };
 
-module.exports = { createOrder };
+export default  createOrder ;

@@ -1,7 +1,8 @@
 // importing logger
-const { typeMatch } = require('../improve/improve')
-const { logger } = require('../improve/logger')
-const log = logger(__filename)
+import { typeMatch } from '../improve/improve';
+
+import logger from '../improve/logger';
+const log = logger()
 
 
 const _apiKeyCheck = async (req, res, next) => {
@@ -33,4 +34,4 @@ const _apiKeyCheck = async (req, res, next) => {
 	next();
 };
 
-module.exports = { _apiKeyCheck };
+export default { _apiKeyCheck };

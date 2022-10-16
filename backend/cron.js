@@ -1,11 +1,12 @@
-const cronSchedule = require("node-schedule");
+import cronSchedule from 'node-schedule';
 
 // importing cronJOBS
-const autoDeleteRefreshToken = require("./controllers/Cron/autoDeleteRefreshToken")
+import autoDeleteRefreshToken from './controllers/Cron/autoDeleteRefreshToken';
 
 // importing logger
-const { logger } = require("./improve/logger")
-const log = logger(__filename)
+import logger from './improve/logger';
+
+const log = logger()
 
 
 const runCrons = () => {
@@ -19,4 +20,4 @@ const runCrons = () => {
     })
 }
 
-module.exports = { runCrons }
+export default { runCrons };

@@ -71,4 +71,4 @@ const timeAt = (timing) => {
 
 
 
-module.exports = {timeAt};
+export default {timeAt};

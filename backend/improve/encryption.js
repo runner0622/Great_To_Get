@@ -1,14 +1,14 @@
-const CryptoJS = require("crypto-js");
-const Crypto = require('crypto');
-const jwt = require("jsonwebtoken");
+import CryptoJS from 'crypto-js';
+import Crypto from 'crypto';
+import jwt from 'jsonwebtoken';
 
 
-const generateHash = (object) => {
+export const generateHash = (object) => {
     const SALT = "c4eef35af5f5cbeef35af12b8135dbf6c55793b17258f5dbf6c1993"
     return jwt.sign(object, SALT, {noTimestamp: true})
 }
 
-const encrypt = (message) => CryptoJS.SHA256(message);
+export const encrypt = (message) => CryptoJS.SHA256(message);
 
 
 // const generateHash = (pass) => {
@@ -18,10 +18,10 @@ const encrypt = (message) => CryptoJS.SHA256(message);
 // }
 
 
-let hash = (message) => CryptoJS.SHA256(message).toString();
-let fakeID = (length=8) => hash(Crypto.randomBytes(32).toString('hex')).substr(0, length);
+export let hash = (message) => CryptoJS.SHA256(message).toString();
+export let fakeID = (length=8) => hash(Crypto.randomBytes(32).toString('hex')).substr(0, length);
 
-let fakeNumString = (length=5) => {
+export let fakeNumString = (length=5) => {
     let inner = (length) =>{
         temp = "";
         for (x=0; x <= length; x++){
@@ -33,32 +33,14 @@ let fakeNumString = (length=5) => {
 }
 
 // encryptAES
-let encryptAES = (message, key) => CryptoJS.AES.encrypt(message, key).toString();
+export let encryptAES = (message, key) => CryptoJS.AES.encrypt(message, key).toString();
 
 // decryptAES
-let decryptAES = (message, key) => CryptoJS.AES.decrypt(message, key).toString(CryptoJS.enc.Utf8);
+export let decryptAES = (message, key) => CryptoJS.AES.decrypt(message, key).toString(CryptoJS.enc.Utf8);
 
 
 
-
-
-if (require.main === module) {
-
-    console.log(generateHash("KAi"))
-
-
-    // message = 'zenosama';
-    // passphase = 'ZNEOSAMAEAJSKLHJLKALJLKAKLLKAJAJKLJAKLK';
-    // encrypted = messageEncrypt(message, passphase);
-    // decrypted = messageDecrypt(encrypted, passphase);
-
-    // console.log('Encrypted :' + encrypted);
-    // console.log('Size of Encrypted :' + sizeof(encrypted));
-    // console.log('Decrypted: ' + decrypted);
-    // console.log(sizeof('U2FsdGVkX19+SiLlnUMiuz+mNakFA6PDrrHWmxldZSA='));
-}
-
-const randomHash = (length = 24, type = 1) => {
+export const randomHash = (length = 24, type = 1) => {
     let characters = '';
     let result = '';
     if (type === 1){
@@ -77,6 +59,3 @@ const randomHash = (length = 24, type = 1) => {
 };
 
 
-module.exports = {
-    hash, fakeID, fakeNumString, encryptAES, decryptAES, generateHash, randomHash
-}

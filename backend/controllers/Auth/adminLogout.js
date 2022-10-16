@@ -1,5 +1,5 @@
-const { isEmpty, typeMatch } = require("../../improve/improve");
-const refreshToken = require("../../models/refreshToken.model");
+import { isEmpty, typeMatch } from '../../improve/improve';
+import refreshToken from '../../models/refreshToken.model';
 
 /*
     DE -> 1
@@ -8,8 +8,9 @@ const refreshToken = require("../../models/refreshToken.model");
 */
 
 // importing logger
-const { logger } = require('../../improve/logger')
-const log = logger(__filename)
+import logger from '../../improve/logger';
+
+const log = logger()
 
 const adminLogout = async (req, res) => {
 	token = req.body.token;
@@ -52,4 +53,4 @@ const adminLogout = async (req, res) => {
 	}
 };
 
-module.exports = adminLogout;
+export default adminLogout;

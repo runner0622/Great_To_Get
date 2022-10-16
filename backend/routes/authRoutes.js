@@ -1,17 +1,17 @@
-const express = require('express');
+import express from 'express';
 const router = express.Router();
 
 // middlewares
-const _nullCheckLogin = require('../middlewares/auth/_nullCheckLogin');
+import _nullCheckLogin from '../middlewares/auth/_nullCheckLogin';
 
 // controllers
-const adminLogin = require('../controllers/Auth/adminLogin');
-const adminLogout = require('../controllers/Auth/adminLogout');
-const adminRegister = require('../controllers/Auth/adminRegister');
-const userLogin = require('../controllers/Auth/userLogin');
-const userRegister = require('../controllers/Auth/userRegister');
+import adminLogin from '../controllers/Auth/adminLogin';
 
-const { renewToken} = require('../controllers/Auth/auth');
+import adminLogout from '../controllers/Auth/adminLogout';
+import adminRegister from '../controllers/Auth/adminRegister';
+import userLogin from '../controllers/Auth/userLogin';
+import userRegister from '../controllers/Auth/userRegister';
+import { renewToken } from '../controllers/Auth/auth';
 
 // routes
 router.route('/login').post(_nullCheckLogin, adminLogin);
@@ -22,4 +22,4 @@ router.route('/register').post(adminRegister);
 router.route('/user/login').post(_nullCheckLogin, userLogin);
 router.route('/user/register').post(userRegister);
 
-module.exports = router;
+export default router;

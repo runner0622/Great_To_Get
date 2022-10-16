@@ -1,10 +1,12 @@
 // importing models
-const { typeMatch, isEmpty } = require("../../improve/improve");
-const ProductModel = require("../../models/product.model");
+import { typeMatch, isEmpty } from '../../improve/improve';
+
+import ProductModel from '../../models/product.model';
 
 // importing logger
-const { logger } = require("../../improve/logger");
-const log = logger(__filename);
+import logger from '../../improve/logger';
+
+const log = logger();
 
 /*
     DE -> 0
@@ -48,4 +50,4 @@ const productDelete = async (req, res, next) => {
 	}
 };
 
-module.exports = { productDelete };
+export  { productDelete };

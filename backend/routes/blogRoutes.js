@@ -1,12 +1,13 @@
-const express = require("express");
+import express from 'express';
 const router = express.Router();
 
 // controllers
-const blogCreate = require("../controllers/Blog/blogCreate").blogCreate;
-const blogDelete = require("../controllers/Blog/blogDelete").blogDelete;
+import blogCreate from '../controllers/Blog/blogCreate';
+
+import blogDelete from '../controllers/Blog/blogDelete';
 
 // read route for admin
-const { xblogRead, xblogReadAll } = require("../controllers/Blog/xblogRead");
+import { xblogRead, xblogReadAll } from '../controllers/Blog/xblogRead';
 
 router.route("/create").post(blogCreate);
 router.route("/delete").delete(blogDelete);
@@ -17,4 +18,4 @@ router.route("/xread/:blogID").get(xblogRead);
 // admin route for reading blog --> for published and unpublished
 router.route("/xread").get(xblogReadAll);
 
-module.exports = router;
+export default router;

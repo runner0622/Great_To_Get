@@ -1,5 +1,5 @@
-const cloudinary  = require("cloudinary").v2;
-const streamifier = require("streamifier");
+import { v2 as cloudinary } from 'cloudinary';
+import streamifier from 'streamifier';
 
 const _singleFileUpload = async (req, res, next) => {
     console.log("starting ... single upload --")
@@ -52,4 +52,4 @@ const _singleFileUpload = async (req, res, next) => {
 };
 
 
-module.exports = { _singleFileUpload }
+export { _singleFileUpload };

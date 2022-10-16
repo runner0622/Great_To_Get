@@ -1,10 +1,10 @@
 // importing models
-const AdminModel = require("../../models/admin.model");
-const { isEmpty, typeMatch } = require("../../improve/improve");
+import { deleteOne } from "../../models/admin.model";
+import { isEmpty, typeMatch } from "../../improve/improve";
 
 // importing logger
-const { logger } = require("../../improve/logger");
-const log = logger(__filename);
+import logger from "../../improve/logger";
+const log = logger();
 
 /*
     DE -> 1
@@ -21,7 +21,7 @@ const adminDelete = async (req, res, next) => {
 	}
 
 	try {
-		const deletedUser = await AdminModel.deleteOne(
+		const deletedUser = await deleteOne(
 			{ username: username },
 			{ status: "deleted" }
 		);
@@ -50,4 +50,4 @@ const adminDelete = async (req, res, next) => {
 	}
 };
 
-module.exports = { adminDelete };
+export default { adminDelete };

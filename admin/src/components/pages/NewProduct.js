@@ -1,6 +1,6 @@
-import React, { useState, useRef, useEffect, useReducer } from "react";
+import React, { useState, useRef, useReducer } from "react";
 import Navbar from "./../blocks/Navbar";
-import { isEmpty, url, HEADER_PAYLOAD, useEffectAsync } from "../../helper";
+import { isEmpty, url, useEffectAsync } from "../../helper";
 import axios from "axios";
 import Upload from "rc-upload";
 // import SnackBar from './../blocks/SnackBar';
@@ -8,10 +8,8 @@ import productReducer from "./../reducers/productReducer";
 import ACTIONS from "../reducers/actions";
 import yesNO from "../blocks/swal/yesNo";
 import customToast from "../blocks/swal/customToast";
-import uploadWait from "../blocks/swal/uploadWait";
 import { useLocation, useHistory } from "react-router-dom";
 import useIncDec from "../../hooks/useIncDec";
-import SimpleImageSlider from "react-simple-image-slider";
 
 const NewProduct = (props) => {
 	const location = useLocation();
@@ -104,11 +102,10 @@ const NewProduct = (props) => {
 
 			customToast("success", "Data Saved");
 		} catch (error) {
-			console.log(error);
-			if (error.response.status === 400) {
-				customToast("warning", error.response.data.msg);
+			if (error.response?.status === 400) {
+				customToast("warning", error.response?.data?.msg || "" );
 			} else {
-				customToast("error", error.response.data.msg);
+				customToast("error", error.response?.data?.msg || "");
 			}
 
 			console.error("error saving product --> ", error.response);

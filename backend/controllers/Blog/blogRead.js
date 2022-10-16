@@ -1,13 +1,15 @@
 // importing models
-const { typeMatch, isEmpty } = require("../../improve/improve");
-const BlogModel = require("../../models/blog.model");
+import { typeMatch, isEmpty } from '../../improve/improve';
+
+import BlogModel from '../../models/blog.model';
 
 // importing logger
-const { logger } = require("../../improve/logger");
-const log = logger(__filename);
+import logger from '../../improve/logger';
+
+const log = logger();
 
 
-const blogRead = async (req, res, next) => {
+export const blogRead = async (req, res, next) => {
 	const blogID = req.params.blogID;
 
 
@@ -70,7 +72,7 @@ const blogRead = async (req, res, next) => {
 };
 
 
-const blogReadAll = async (req, res, next) => {
+export const blogReadAll = async (req, res, next) => {
 
     try{
         const blogData = await BlogModel.find({
@@ -108,4 +110,3 @@ const blogReadAll = async (req, res, next) => {
 	}
 }
 
-module.exports = { blogRead, blogReadAll };

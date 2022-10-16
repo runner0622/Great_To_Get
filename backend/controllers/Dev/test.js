@@ -1,8 +1,7 @@
-const autoDelete = require("../Cron/autoDeleteRefreshToken");
-const verifyRT = require("../Helpers/verifyRefreshToken");
-
-const { logger} = require("../../improve/logger");
-const log = logger(__filename);
+import autoDelete from '../Cron/autoDeleteRefreshToken';
+import verifyRT from '../Helpers/verifyRefreshToken';
+import logger from '../../improve/logger';
+const log = logger();
 
 
 const test = async (req, res, next) => {
@@ -24,4 +23,4 @@ const test = async (req, res, next) => {
 	});
 };
 
-module.exports = { test };
+export default { test };

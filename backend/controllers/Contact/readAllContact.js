@@ -1,10 +1,12 @@
 // importing models
-const { typeMatch, isEmpty } = require("../../improve/improve");
-const ContactModel = require("../../models/contact.model");
+import { typeMatch, isEmpty } from '../../improve/improve';
+
+import ContactModel from '../../models/contact.model';
 
 // importing logger
-const { logger } = require("../../improve/logger");
-const log = logger(__filename);
+import logger from '../../improve/logger';
+
+const log = logger();
 
 
 const readAllContact  = async (req, res, next) => {
@@ -29,4 +31,4 @@ const readAllContact  = async (req, res, next) => {
 	}
 };
 
-module.exports = { readAllContact };
+export { readAllContact };

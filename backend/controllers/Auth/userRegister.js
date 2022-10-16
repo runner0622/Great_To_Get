@@ -1,5 +1,5 @@
-const UserModel = require("../../models/user.model");
-const { isEmpty } = require("../../improve/improve");
+import UserModel from '../../models/user.model';
+import { isEmpty } from '../../improve/improve';
 
 /*
     DE -> 1
@@ -8,52 +8,58 @@ const { isEmpty } = require("../../improve/improve");
 */
 
 // importing logger
-const { logger } = require("../../improve/logger");
-const log = logger(__filename);
+import logger from '../../improve/logger';
+
+const log = logger();
+import hasher from 'js-sha256';
 
 const userRegister = async (req, res, next) => {
     try {
         let { username, password, email } = req.body;
 
-		const userResult = await UserModel.findOne({
+        // encrypt password with sha256
+        password = hasher.sha256(password)
+        console.log("password", password);
+
+        const userResult = await UserModel.findOne({
             $or: [{ username: username }, { email: email }],
         });
 
-		if (!isEmpty(userResult)){
-			return res.status(400).json({
-				message: "User already exist",
-			});
-		}
+        if (!isEmpty(userResult)) {
+            return res.status(400).json({
+                message: "User already exist",
+            });
+        }
 
-		if (!username || !password || !email) {
-			return res.status(400).json({
-				message: "Please fill all the fields",
-				status: "failed",
-				fields: {
-					username: !username,
-					password: !password,
-					email: !email,
-				}
-			});
-		}
-		
-		const newUser = new UserModel({
-			username,
-			password,
-			email,
-		});
+        if (!username || !password || !email) {
+            return res.status(400).json({
+                message: "Please fill all the fields",
+                status: "failed",
+                fields: {
+                    username: !username,
+                    password: !password,
+                    email: !email,
+                }
+            });
+        }
 
-		const result = await newUser.save();
+        const newUser = new UserModel({
+            username,
+            password,
+            email,
+        });
 
-		if (!isEmpty(result)) {
-			return res.status(200).json({
-				message: "User registered successfully",
-			});
-		} else {
-			return res.status(400).json({
-				message: "User registration failed",
-			});
-		}
+        const result = await newUser.save();
+
+        if (!isEmpty(result)) {
+            return res.status(200).json({
+                message: "User registered successfully",
+            });
+        } else {
+            return res.status(400).json({
+                message: "User registration failed",
+            });
+        }
 
     } catch (error) {
         console.log(error);
@@ -67,4 +73,4 @@ const userRegister = async (req, res, next) => {
     }
 };
 
-module.exports = userRegister;
+export default userRegister;

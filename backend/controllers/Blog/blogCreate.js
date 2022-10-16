@@ -1,8 +1,10 @@
-const { typeMatch, isEmpty } = require("../../improve/improve");
-const BlogModel = require("../../models/blog.model");
+import { typeMatch, isEmpty } from '../../improve/improve';
+import BlogModel from '../../models/blog.model';
+
 // importing logger
-const { logger } = require("../../improve/logger");
-const log = logger(__filename);
+import logger from '../../improve/logger';
+
+const log = logger();
 
 const blogCreate = async (req, res, next) => {
 	let {
@@ -175,4 +177,4 @@ const blogCreate = async (req, res, next) => {
 	}
 };
 
-module.exports = { blogCreate };
+export default blogCreate;

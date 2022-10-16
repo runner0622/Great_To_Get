@@ -1,10 +1,11 @@
-const jwt = require("jsonwebtoken");
-const refreshToken = require("../../models/refreshToken.model");
-const { isEmpty, typeMatch } = require("../../improve/improve");
+import jwt from 'jsonwebtoken';
+import refreshToken from '../../models/refreshToken.model';
+import { isEmpty, typeMatch } from '../../improve/improve';
 
 // importing logger
-const { logger } = require('../../improve/logger')
-const log = logger(__filename)
+import logger from '../../improve/logger';
+
+const log = logger()
 
 
 /*
@@ -85,5 +86,5 @@ const renewToken = async (req, res, next) => {
 }
 
 
-module.exports = { renewToken, generateAccessToken, generateRefreshToken };
+export { renewToken, generateAccessToken, generateRefreshToken };
 

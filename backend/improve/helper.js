@@ -1,33 +1,23 @@
-const isMode = (mode) => process.env.MODE === mode;
+export const isMode = (mode) => process.env.MODE === mode;
 
-const MODE = process.env.MODE;
+export const MODE = process.env.MODE;
 
-const HOSTNAME = isMode("DEV")
-	? "http://localhost:4000"
-	: process.env.HOSTNAME;
+export const HOSTNAME = isMode("DEV")
+    ? "http://localhost:4000"
+    : process.env.HOSTNAME;
 
 
-const url = (endpoint) => {
-	return `${HOSTNAME}${endpoint || ''}`;
+export const url = (endpoint) => {
+    return `${HOSTNAME}${endpoint || ''}`;
 };
 
 
-const routes = [url(), url("/upload/product"), 'http://localhost:3000'];
+export const routes = [url(), url("/upload/product"), 'http://localhost:3000'];
 
-const allowPublicCORS = {
-	origin: "*",
+export const allowPublicCORS = {
+    origin: "*",
 };
 
-const allowPrivateCORS = {
-	origin: routes,
-};
-
-module.exports = {
-	allowPrivateCORS,
-	allowPublicCORS,
-	url,
-	routes,
-	HOSTNAME,
-	isMode,
-	MODE
+export const allowPrivateCORS = {
+    origin: routes,
 };

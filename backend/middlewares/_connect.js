@@ -1,5 +1,5 @@
 // connection to database
-const mongoose = require("mongoose");
+import mongoose from 'mongoose';
 
 let url = "";
 if (process.env.MODE === "DEV") {
@@ -17,7 +17,7 @@ const STATUS = {
 
 const _connect = async () => {
 	try {
-		await mongoose.connect(url, {
+		await mongoose.connect(process.env.MONGO_TEST_URL, {
 			useNewUrlParser: true,
 			useUnifiedTopology: true,
 		});
@@ -39,11 +39,11 @@ const _connect = async () => {
 				STATUS[mongoose.connection.readyState]
 			}`
 		);
-		console.log("Mode: ", process.env.MODE === "DEV" ? "local" : "prod");
 	} catch (error) {
+        console.log(error);
 		console.log(`connection to MongoDB status: Failed [fatal error]`);
 		process.exit();
 	}
 };
 
-module.exports.connect = _connect;
+export default _connect;

@@ -1,4 +1,4 @@
-const multer = require('multer');
+import multer from 'multer';
 
 const upload = (file) => {
 
@@ -25,6 +25,7 @@ const upload = (file) => {
 
     return multer({ storage: storage }).array(file);
 }
-module.exports = {
+
+export default {
     upload
-}
+};

@@ -8,4 +8,4 @@ const _test = (req, res, next) => {
 }
 
 
-module.exports = { _test }
+export default { _test };

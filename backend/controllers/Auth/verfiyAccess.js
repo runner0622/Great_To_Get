@@ -4,4 +4,4 @@ const verfiyAccess = (req, res, next) => {
     })
 }
 
-module.exports = {verfiyAccess}
+export default {verfiyAccess};

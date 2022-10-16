@@ -1,4 +1,4 @@
-const orderModel = require("../../models/order.model");
+import orderModel from '../../models/order.model';
 
 const orderSuccess = async (req, res, next) => {
 	const order_id = req.body.order_id ?? "";
@@ -29,4 +29,4 @@ const orderSuccess = async (req, res, next) => {
 	
 };
 
-module.exports = { orderSuccess };
+export default  orderSuccess;

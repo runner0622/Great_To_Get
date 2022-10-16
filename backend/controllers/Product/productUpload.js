@@ -4,4 +4,4 @@ const productUpload = async (req, res) => {
     })
 };
 
-module.exports = { productUpload };
+export  { productUpload };

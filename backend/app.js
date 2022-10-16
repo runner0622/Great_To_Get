@@ -1,35 +1,30 @@
 //allow or block ip addreses
-const cors = require("cors");
+import cors from "cors";
 
-const dotenv = require("dotenv");
+import dotenv from "dotenv";
 dotenv.config();
 
 
 
-const {
-	allowPublicCORS,
-	allowPrivateCORS,
-	MODE,
-	HOSTNAME,
-} = require("./improve/helper");
+import { allowPublicCORS, allowPrivateCORS, MODE, HOSTNAME } from "./improve/helper";
 
 
-const express = require("express");
+import express, { urlencoded, json } from "express";
 const app = express();
-const path = require("path");
-const mongo = require("./middlewares/_connect");
+// import path from "path";
+import _connect from "./middlewares/_connect";
 
-const authHandlers = require("./routes/authRoutes");
-const blogHandlers = require("./routes/blogRoutes");
-const productHandlers = require("./routes/productRoutes");
-const genericHandlers = require("./routes/genericRoutes");
-const orderHandlers = require("./routes/orderRoutes");
-const publicHandlers = require("./routes/publicRoutes");
-const uploadHandlers = require("./routes/uploadRoutes");
-const { _authToken } = require("./middlewares/_authToken");
+import publicHandlers from "./routes/publicRoutes";
+import authHandlers from "./routes/authRoutes";
+import blogHandlers from "./routes/blogRoutes";
+import productHandlers from "./routes/productRoutes";
+import genericHandlers from "./routes/genericRoutes";
+import orderHandlers from "./routes/orderRoutes";
+import uploadHandlers from "./routes/uploadRoutes";
+import  _authToken from "./middlewares/_authToken";
 
-app.use(express.urlencoded({ extended: true }));
-app.use(express.json({ limit: "10mb", extended: true }));
+app.use(urlencoded({ extended: true }));
+app.use(json({ limit: "10mb", extended: true }));
 
 
 
@@ -37,15 +32,15 @@ app.use(express.json({ limit: "10mb", extended: true }));
 app.set("json spaces", 2);
 
 // public api routes
-app.use("/api", cors(), publicHandlers);
-app.use("/upload", cors(), uploadHandlers);
+app.use("/api", cors(allowPublicCORS), publicHandlers);
+app.use("/upload", cors(allowPublicCORS), uploadHandlers);
 
 // private api routes
-app.use("/auth", cors(), authHandlers);
-app.use("/blog", cors(allowPrivateCORS), _authToken, blogHandlers);
-app.use("/product", cors(allowPrivateCORS), _authToken, productHandlers);
-app.use("/generic", cors(allowPrivateCORS), _authToken, genericHandlers);
-app.use("/order", cors(allowPrivateCORS), _authToken, orderHandlers);
+app.use("/auth", cors(allowPublicCORS), authHandlers);
+app.use("/blog", cors(allowPublicCORS), _authToken, blogHandlers);
+app.use("/product", cors(allowPublicCORS), _authToken, productHandlers);
+app.use("/generic", cors(allowPublicCORS), _authToken, genericHandlers);
+app.use("/order", cors(allowPublicCORS), _authToken, orderHandlers);
 
 // base url
 app.get("/", (req, res) => {
@@ -69,14 +64,15 @@ app.use(function (req, res, next) {
 // run cron
 // cron.runCrons();
 
-app.listen(process.env.PORT || 2000, (err) => {
+app.listen(process.env.PORT || 2000, async (err) => {
 	console.log("connected to node");
 	if (err) {
 		console.log("could not connect to node");
 	} else {
 		try {
-			mongo.connect();
+			await _connect();
 		} catch (error) {
+            console.log(error);
 			console.log("could not connect to mongodb");
 		}
 	}

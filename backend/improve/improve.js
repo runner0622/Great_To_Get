@@ -1,6 +1,6 @@
-const timeNow = () => Date.now();
+export const timeNow = () => Date.now();
 
-const isEmpty = (arg) => {
+export const isEmpty = (arg) => {
 	if (arg == null) {
 		return true;
 	} else if (typeof arg === "undefined") {
@@ -14,30 +14,30 @@ const isEmpty = (arg) => {
 };
 
 // if types are equal
-const typeMatch = (variable, expected = "string") => {
+export const typeMatch = (variable, expected = "string") => {
 	if (typeof variable === expected) {
 		return true;
 	}
 	return false;
 };
 
-const isEmptyType = (variable, expected = "string") => {
+export const isEmptyType = (variable, expected = "string") => {
     return isEmpty(variable) && typeMatch(variable, expected)
 }
 
 //  check if elem in array
-const keyCheck = (array, key) => {
+export const keyCheck = (array, key) => {
 	return Object.keys(array).includes(key);
 };
 
-const isNumeric = (str) => {
+export const isNumeric = (str) => {
 	if (typeof str == "number") return true;
 	if (typeof str != "string") return false;
 	return !isNaN(str) && !isNaN(parseFloat(str));
 };
 
 
-const isMode = (mode = 'dev') => {
+export const isMode = (mode = 'dev') => {
 	allowed = ['pro', 'dev', 'testing']
 	if (!allowed.includes(mode)){
 		mode = 'dev'
@@ -46,7 +46,7 @@ const isMode = (mode = 'dev') => {
 }
 
 
-const range = (start, stop) => {
+export const range = (start, stop) => {
 	const output = [];
 	for (var x = start; x < stop; x++) {
 		output.push(x);
@@ -54,12 +54,3 @@ const range = (start, stop) => {
 	return output;
 };
 
-module.exports = {
-	timeNow,
-	typeMatch,
-	keyCheck,
-	isEmpty,
-    isEmptyType,
-	isNumeric,
-	range,
-};

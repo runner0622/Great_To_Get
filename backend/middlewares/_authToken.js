@@ -1,5 +1,5 @@
-const jwt = require('jsonwebtoken')
-const { isEmpty } = require('../improve/improve')
+import jwt from 'jsonwebtoken';
+import { isEmpty } from '../improve/improve';
 
 
 const _authToken = async (req, res, next) => {
@@ -22,7 +22,7 @@ const _authToken = async (req, res, next) => {
     }
 
 
-    token = authHeader.split(' ')[1]
+    const token = authHeader.split(' ')[1]
     if (isEmpty(token)) {
         return res.status(401).json({
             msg: "Authentication token invalid or expired",
@@ -46,4 +46,4 @@ const _authToken = async (req, res, next) => {
 
 };
 
-module.exports = { _authToken }
+export default  _authToken;

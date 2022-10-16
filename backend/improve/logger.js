@@ -1,5 +1,4 @@
-const chalk = require("chalk");
-const { isEmpty, typeMatch } = require("./improve");
+import chalk from 'chalk';
 
 const color = {
 	green: [0, 255, 0],
@@ -38,8 +37,7 @@ const timeNow = () => {
 
 class loggerClass {
 	constructor(filepath) {
-		this.filepath = filepath.split("\\");
-		this.filepath = this.filepath[this.filepath.length - 1];
+		this.filepath = ":("
 	}
 
 	log = (...args) => {
@@ -109,8 +107,8 @@ class loggerClass {
     }
 }
 
-const logger = (filepath) => {
-	return new loggerClass(filepath);
+const logger = () => {
+	return new loggerClass();
 };
 
-module.exports = { logger};
+export default logger;

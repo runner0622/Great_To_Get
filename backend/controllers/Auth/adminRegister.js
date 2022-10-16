@@ -1,5 +1,5 @@
-const AdminModel = require("../../models/admin.model");
-const { isEmpty } = require("../../improve/improve");
+import AdminModel from '../../models/admin.model';
+import { isEmpty } from '../../improve/improve';
 
 /*
     DE -> 1
@@ -8,8 +8,9 @@ const { isEmpty } = require("../../improve/improve");
 */
 
 // importing logger
-const { logger } = require("../../improve/logger");
-const log = logger(__filename);
+import logger from '../../improve/logger';
+
+const log = logger();
 
 const adminRegister = async (req, res, next) => {
 	try {
@@ -80,4 +81,4 @@ const adminRegister = async (req, res, next) => {
 	}
 };
 
-module.exports = adminRegister;
+export default adminRegister;

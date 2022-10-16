@@ -16,4 +16,4 @@ const log = (message) => {
 	console.log(message);
 };
 
-module.exports = { all, any, log };
+export default { all, any, log };

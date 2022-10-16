@@ -7,4 +7,4 @@ const insertImage = (req, res, next) => {
 	});
 };
 
-module.exports = { insertImage };
+export { insertImage };

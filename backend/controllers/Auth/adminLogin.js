@@ -1,16 +1,16 @@
 // importing models
-const AdminModel = require("../../models/admin.model");
-const refreshToken = require("../../models/refreshToken.model");
+import AdminModel from "../../models/admin.model";
+import refreshToken from "../../models/refreshToken.model";
 
 // importing auth modules
-const { generateAccessToken, generateRefreshToken } = require("./auth");
+import { generateAccessToken, generateRefreshToken } from "./auth";
 
 // importing helpers
-const { isEmpty } = require("../../improve/improve");
+import { isEmpty } from "../../improve/improve";
 
 // importing logger
-const { logger } = require("../../improve/logger");
-const log = logger(__filename);
+import logger from "../../improve/logger";
+const log = logger();
 
 
 
@@ -23,52 +23,38 @@ const log = logger(__filename);
 
 const adminLogin = async (req, res) => {
 	try {
-		let { username, password } = req.body;
+        let { username, password } = req.body;
 
+        const userInfo = await AdminModel.findOne({
+            username: username,
+        });
 
-		userInfo = await AdminModel.findOne({
-			username: username,
-		});
-
-        if (isEmpty(userInfo)){
-            const [MESSAGE, STATUS, ERROR] = ['Username or Password does not exists', 401, "CE_C_AUTH_ADMIN_LOGIN_01"]
-            log.warning(ERROR, STATUS, MESSAGE)
-            return res.status(STATUS).json({
-                msg: MESSAGE,
-                error: ERROR
+        if (isEmpty(userInfo)) {
+            return res.status(400).json({
+                message: "User not found",
             });
         }
 
+        if (userInfo.password !== password) {
+            return res.status(400).json({
+                message: "Incorrect password",
+            });
+        }
 
-        // does username have active account ?
-        if (userInfo.status !== "active") {
-            const [MESSAGE, STATUS, ERROR] = [`Username has been ${userInfo.status}`, 401, "CE_C_AUTH_ADMIN_LOGIN_02"]
-            
-            log.warning(ERROR, STATUS, MESSAGE)
-            return res.status(STATUS).json({
-                msg: MESSAGE,
-                error: ERROR
+        if (!userInfo) {
+            return res.status(400).json({
+                message: "Invalid username or password",
+                userInfo: userInfo,
             });
         }
-        
-        
-        // username and password check
-        if (!(userInfo.username === username && userInfo.password === password)) {
-            const [MESSAGE, STATUS, ERROR] = [`Username or Password does not match`, 401, "CE_C_AUTH_ADMIN_LOGIN_03"]
-            
-            log.warning(ERROR, STATUS, MESSAGE)
-            return res.status(STATUS).json({
-                msg: MESSAGE,
-                error: ERROR
-            });
-        }
+
 
 
         // remove password from payload
         userInfo.password = "";
             
         // payload with username and password
-        payload = userInfo.toJSON();
+        const payload = userInfo.toJSON();
 
         // creating JWT access token and refresh token
         const accessTokenValue = generateAccessToken(payload);
@@ -108,4 +94,4 @@ const adminLogin = async (req, res) => {
 	}
 };
 
-module.exports = adminLogin;
+export default adminLogin;

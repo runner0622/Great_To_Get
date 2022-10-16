@@ -1,4 +1,4 @@
-const { isEmpty } = require("../../improve/improve");
+import { isEmpty } from '../../improve/improve';
 
 const verifyRefreshToken = async (token) => {
 	try {
@@ -12,4 +12,4 @@ const verifyRefreshToken = async (token) => {
 	}
 };
 
-module.exports = { verifyRefreshToken };
+export default { verifyRefreshToken };

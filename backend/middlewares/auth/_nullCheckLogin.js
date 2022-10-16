@@ -1,8 +1,9 @@
-const { isEmpty, typeMatch } = require('../../improve/improve')
+import { isEmpty, typeMatch } from '../../improve/improve';
 
 // import logger
-const { logger } = require('../../improve/logger')
-const log = logger(__filename)
+import logger from '../../improve/logger';
+
+const log = logger()
 
 
 const _nullCheckLogin = async (req, res, next) => {
@@ -56,4 +57,4 @@ const _nullCheckLogin = async (req, res, next) => {
     next();
 };
 
-module.exports = _nullCheckLogin;
+export default _nullCheckLogin;

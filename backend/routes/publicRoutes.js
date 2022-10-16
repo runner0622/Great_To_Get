@@ -1,39 +1,42 @@
-const express = require("express");
+import express from 'express';
 const router = express.Router();
 
-
 // product public routes
-const productRead = require("../controllers/Product/productRead").productRead;
-const productReadAll =
-	require("../controllers/Product/productRead").productReadAll;
-router.route("/product/read/:productID").get(productRead);
-router.route("/product/read").get(productReadAll);
+import { productRead, productReadAll } from '../controllers/Product/productRead';
 
+// contact public routes
+import  createContact  from '../controllers/Contact/createContact';
 
 // blog public routes
-// only published blogs are fetched
-const { blogRead, blogReadAll } = require("../controllers/Blog/blogRead");
+import { blogRead, blogReadAll } from '../controllers/Blog/blogRead';
+
+// order
+import  createOrder  from '../controllers/Order/createOrder';
+import _nullCheckOrder from '../middlewares/_nullCheckOrder';
+import  orderSuccess from '../controllers/Order/orderSuccess';
+import  trackOrder from '../controllers/Order/trackOrder';
+
+// sendmail
+import _sendMail from '../middlewares/_sendMail';
+
+
+
 router.route("/blog/read/:blogID").get(blogRead);
 router.route("/blog/read").get(blogReadAll);
 
+router.route("/product/read/:productID").get(productRead);
+router.route("/product/read").get(productReadAll);
+
 // contact us post
-const createContact =
-	require("../controllers/Contact/createContact").createContact;
 router.route("/contact/create").post(createContact);
 
 // sendmail
-const { _sendMail } = require("../middlewares/_sendMail");
 router.route("/sendmail").post(_sendMail);
 
-// order
-const { createOrder } = require("../controllers/Order/createOrder");
-const { _nullCheckOrder } = require("../middlewares/_nullCheckOrder");
-const { orderSuccess } = require("../controllers/Order/orderSuccess");
-const { trackOrder } = require("../controllers/Order/trackOrder");
 
 router.route("/order").post(_nullCheckOrder, createOrder);
 router.route("/order/success").post(orderSuccess);
 router.route("/order/track").post(trackOrder);
 
 
-module.exports = router;
+export default router;

@@ -1,18 +1,20 @@
-const express = require("express");
+import express from 'express';
 const router = express.Router();
 
 // file management
-const multer = require('multer');
+import multer from 'multer';
+
 const upload = multer({});
 
 
 // controllers
-const productCreate = require("../controllers/Product/productCreate").productCreate;
-const productDelete = require("../controllers/Product/productDelete").productDelete;
-const _singleFileUpload = require("../middlewares/_singleFileUpload")._singleFileUpload;
-const insertImage = require("../controllers/Blog/insertImage").insertImage;
-const { _allowPublicCORS, _allowPrivateCORS } = require("../middlewares/_corsCheck");
-const { _authToken } = require("../middlewares/_authToken");
+import { productCreate } from '../controllers/Product/productCreate';
+
+import { productDelete } from '../controllers/Product/productDelete';
+import { _singleFileUpload } from '../middlewares/_singleFileUpload';
+import { insertImage } from '../controllers/Blog/insertImage';
+import { _allowPublicCORS, _allowPrivateCORS } from '../middlewares/_corsCheck';
+import  _authToken from '../middlewares/_authToken';
 
 
 
@@ -21,4 +23,4 @@ router.route("/create").post(productCreate);
 router.route("/delete").delete(productDelete);
 router.route("/upload").post( upload.single('file'), _singleFileUpload, insertImage);
 
-module.exports = router;
+export default router;

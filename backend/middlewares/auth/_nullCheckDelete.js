@@ -1,5 +1,5 @@
-const { isEmpty, typeMatch } = require('../../improve/improve')
-const { logger } = require("../../improve/logger")
+import { isEmpty, typeMatch } from '../../improve/improve';
+import logger from '../../improve/logger';
 
 const _nullCheckDelete = async (req, res, next) => {
 
@@ -71,4 +71,4 @@ const _nullCheckDelete = async (req, res, next) => {
     next();
 };
 
-module.exports = { _nullCheckDelete }
+export default { _nullCheckDelete };

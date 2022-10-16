@@ -1,5 +1,5 @@
-const OrderModel = require("../../models/order.model");
-const { isEmpty } = require("../../improve/improve");
+import OrderModel from '../../models/order.model';
+import { isEmpty } from '../../improve/improve';
 
 const trackOrder = async (req, res, next) => {
 	const { order_id } = req.body;
@@ -38,4 +38,4 @@ const trackOrder = async (req, res, next) => {
 	}
 };
 
-module.exports = { trackOrder };
+export default  trackOrder;

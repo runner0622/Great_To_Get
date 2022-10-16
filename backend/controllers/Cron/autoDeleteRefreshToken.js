@@ -1,5 +1,5 @@
-const refreshToken = require("../../models/refreshToken.model");
-const jwt = require("jsonwebtoken");
+import refreshToken from '../../models/refreshToken.model';
+import jwt from 'jsonwebtoken';
 
 
 const verifyRefreshToken = (token) => {
@@ -25,4 +25,4 @@ const autoDeleteRefreshToken = async (req, res, next) => {
 	}
 };
 
-module.exports = { autoDeleteRefreshToken };
+export default { autoDeleteRefreshToken };

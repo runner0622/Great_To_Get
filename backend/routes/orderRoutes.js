@@ -1,11 +1,12 @@
-const express = require("express");
+import express from 'express';
 const router = express.Router();
 
 // create notification
-const createOrder = require("../controllers/Order/createOrder").createOrder;
-const xreadAllOrders = require("../controllers/Order/xreadAllOrders").xreadAllOrders;
-const deleteOrder = require("../controllers/Order/deleteOrder").deleteOrder;
-const updateOrder = require("../controllers/Order/updateOrder").updateOrder;
+import  createOrder  from '../controllers/Order/createOrder';
+
+import { xreadAllOrders } from '../controllers/Order/xreadAllOrders';
+import { deleteOrder } from '../controllers/Order/deleteOrder';
+import { updateOrder } from '../controllers/Order/updateOrder';
 
 router.route("/create").post(createOrder);
 router.route("/xread").get(xreadAllOrders);
@@ -13,4 +14,4 @@ router.route("/delete").delete(deleteOrder);
 router.route("/update").post(updateOrder)
 
 
-module.exports = router;
+export default router;

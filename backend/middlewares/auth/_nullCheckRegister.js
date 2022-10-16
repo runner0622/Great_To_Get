@@ -1,6 +1,7 @@
-const { isEmpty, typeMatch } = require('../../improve/improve');
+import { isEmpty, typeMatch } from '../../improve/improve';
+
 // tree shakable import 
-const isEmail  = require('validator/lib/isEmail');
+import isEmail from 'validator/lib/isEmail';
 
 
 const _nullCheckRegister = async (req, res, next) => {
@@ -86,4 +87,4 @@ const _nullCheckRegister = async (req, res, next) => {
     next();
 };
 
-module.exports = { _nullCheckRegister }
+export default { _nullCheckRegister };

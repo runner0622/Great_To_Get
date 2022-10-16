@@ -1,13 +1,14 @@
-const express = require("express");
+import express from 'express';
 const router = express.Router();
 
-const multer = require("multer");
+import multer from 'multer';
 const upload = multer({});
 
 // middlewares
-const { _authToken } = require("../middlewares/_authToken");
-const { _singleFileUpload } = require("../middlewares/_singleFileUpload");
-const { insertImage } = require("../controllers/Helpers/insertImage"); 
+import  _authToken from '../middlewares/_authToken';
+
+import { _singleFileUpload } from '../middlewares/_singleFileUpload';
+import { insertImage } from '../controllers/Helpers/insertImage';
 
 // post route to upload image
 router
@@ -18,4 +19,4 @@ router
 	.route("/product")
 	.post(upload.single("file") , _singleFileUpload, insertImage);
 
-module.exports = router;
+export default router;

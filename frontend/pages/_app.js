@@ -10,12 +10,12 @@ import useWindowDimension from "../hooks/useWindowDimensions";
 import { Provider } from "react-redux";
 import { PersistGate } from "redux-persist/integration/react";
 import { configureStore } from "../redux/configureStore";
+import withAuth from '../hoc/withAuth';
 
 const { store, persistor } = configureStore();
 
 function MyApp({ Component, pageProps }) {
 	const { width } = useWindowDimension();
-
 	return (
 		<Provider store={store}>
 			<PersistGate persistor={persistor}>

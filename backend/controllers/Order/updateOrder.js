@@ -1,5 +1,5 @@
-const OrderModel = require("../../models/order.model");
-const { isEmpty } = require("../../improve/improve");
+import OrderModel from '../../models/order.model';
+import { isEmpty } from '../../improve/improve';
 
 const getNextStatus = (status) => {
     if (status === "order created") {
@@ -76,4 +76,4 @@ const updateOrder = async (req, res, next) => {
     }
 };
 
-module.exports = { updateOrder };
+export { updateOrder };

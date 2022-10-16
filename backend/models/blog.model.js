@@ -1,6 +1,6 @@
-const mongoose = require("mongoose");
+import mongoose from 'mongoose';
 const Schema = mongoose.Schema;
-const { randomHash } = require("../improve/encryption");
+import { randomHash } from '../improve/encryption';
 
 const blogSchema = new Schema({
 	_id: {
@@ -59,4 +59,4 @@ const blogSchema = new Schema({
 	},
 });
 
-module.exports = mongoose.model("blog", blogSchema);
+export default mongoose.model("blog", blogSchema);

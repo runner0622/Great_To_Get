@@ -1,10 +1,12 @@
 // importing models
-const { typeMatch, isEmpty } = require("../../improve/improve");
-const BlogModel = require("../../models/blog.model")
+import { typeMatch, isEmpty } from '../../improve/improve';
+
+import BlogModel from '../../models/blog.model';
 
 // importing logger
-const { logger } = require("../../improve/logger") 
-const log = logger(__filename)
+import logger from '../../improve/logger';
+
+const log = logger()
 
 /*
     DE -> 0
@@ -51,4 +53,4 @@ const blogID = req.body.blogID;
 	}
 };
 
-module.exports = { blogDelete };
+export default blogDelete;

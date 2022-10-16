@@ -1,6 +1,6 @@
-const nodemailer = require("nodemailer");
-const smtpTransport = require("nodemailer-smtp-transport");
-const { fakeID } = require("../improve/encryption");
+import nodemailer from 'nodemailer';
+import smtpTransport from 'nodemailer-smtp-transport';
+import { fakeID } from '../improve/encryption';
 
 /*
     CE:   0  
@@ -72,4 +72,4 @@ const _sendMail = async (req, res, next) => {
 	}
 };
 
-module.exports = { _sendMail };
+export default _sendMail;

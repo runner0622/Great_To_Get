@@ -5,11 +5,7 @@ import prettyMS from "pretty-ms";
 import Link from "next/link";
 import { useRouter } from "next/router";
 
-axios.get('/prime/myshow' , {
-	headers: {
-		"Authorization": `Bearer ${"xyz"}`
-	}
-})
+
 
 const BlogCard = ({ blogState }) => (
 	<Link href={`/blogs/${blogState._id}`}>

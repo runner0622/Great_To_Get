@@ -6,6 +6,6 @@ const timeSpan = [
     '1 year', '3 years', '5 years'
 ]
 
-module.exports = {
+export default {
     timeSpan
-} 
+}; 

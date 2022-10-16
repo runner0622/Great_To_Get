@@ -1,5 +1,5 @@
-const { typeMatch, isEmpty } = require("../../improve/improve");
-const ProductModel = require("../../models/product.model");
+import { typeMatch, isEmpty } from '../../improve/improve';
+import ProductModel from '../../models/product.model';
 
 const productCreate = async (req, res) => {
 	let {
@@ -178,4 +178,4 @@ const productCreate = async (req, res) => {
 	}
 };
 
-module.exports = { productCreate };
+export  { productCreate };

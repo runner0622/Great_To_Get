@@ -1,10 +1,12 @@
 // importing models
-const { typeMatch, isEmpty } = require("../../improve/improve");
-const OrderModel = require("../../models/order.model");
+import { typeMatch, isEmpty } from '../../improve/improve';
+
+import OrderModel from '../../models/order.model';
 
 // importing logger
-const { logger } = require("../../improve/logger");
-const log = logger(__filename);
+import logger from '../../improve/logger';
+
+const log = logger();
 
 
 const deleteOrder  = async (req, res, next) => {
@@ -43,4 +45,4 @@ const deleteOrder  = async (req, res, next) => {
 	}
 };
 
-module.exports = { deleteOrder };
+export { deleteOrder };

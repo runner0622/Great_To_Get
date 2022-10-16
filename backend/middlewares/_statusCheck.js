@@ -1,4 +1,4 @@
-const { isEmpty } = require('../improve/improve')
+import { isEmpty } from '../improve/improve';
 
 const _statusCheck = async (req, res, next) => {
 
@@ -25,4 +25,4 @@ const _statusCheck = async (req, res, next) => {
 
 
 
-module.exports = {_statusCheck }
+export default {_statusCheck };
