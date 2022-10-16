@@ -34,6 +34,12 @@ const Loginpage = (props) => {
         // e.preventDefault();
 
         try {
+
+            console.log({
+                username: username,
+                password: hasher.sha256(password).toString()
+            })
+
             localStorage.clear();
             const loginResult = await axios.post(
                 url("/auth/user/login"),

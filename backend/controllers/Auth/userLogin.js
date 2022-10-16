@@ -29,6 +29,8 @@ const userLogin = async (req, res) => {
             username: username,
         });
 
+        console.log(userInfo)
+
         if (isEmpty(userInfo)) {
             return res.status(400).json({
                 message: "User not found",

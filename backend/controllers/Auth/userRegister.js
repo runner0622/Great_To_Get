@@ -9,17 +9,11 @@ import { isEmpty } from '../../improve/improve';
 
 // importing logger
 import logger from '../../improve/logger';
-
 const log = logger();
-import hasher from 'js-sha256';
 
 const userRegister = async (req, res, next) => {
     try {
         let { username, password, email } = req.body;
-
-        // encrypt password with sha256
-        password = hasher.sha256(password)
-        console.log("password", password);
 
         const userResult = await UserModel.findOne({
             $or: [{ username: username }, { email: email }],
