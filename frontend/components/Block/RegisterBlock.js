@@ -8,16 +8,7 @@ import customToast from "./swal/customToast";
 
 const RegisterBlock = (props) => {
     const router = useRouter();
-    const [path, setPATH] = useState('');
 
-    useEffectAsync(() => {
-        if (!router.isReady)
-            return;
-
-        setPATH(router.asPath?.split('/')?.pop())
-
-
-    }, [router.isReady])
 
     // const history = useHistory();
     const [username, setUsername] = useState("");
@@ -40,7 +31,7 @@ const RegisterBlock = (props) => {
 
         try {
             localStorage.clear();
-            const loginResult = await axios.post(
+            const result = await axios.post(
                 url("/auth/user/register"),
                 {
                     username: username,
@@ -53,10 +44,7 @@ const RegisterBlock = (props) => {
             });
 
 
-            if (
-                loginResult.status === 200 &&
-                loginResult.data.msg === "success") {
-
+            if (result.status === 200) {
 
                 // redirect to homepage
                 router.push('/login')
@@ -69,7 +57,7 @@ const RegisterBlock = (props) => {
         } catch (error) {
             customToast(
                 "warning",
-                "Login Failed"
+                error.response?.data?.message || "Register Failed"
             );
         }
     };
@@ -78,11 +66,7 @@ const RegisterBlock = (props) => {
         <div className="loginwrapper">
             <div className="centerwrapper">
                 <div className="centerwrapper__section centerwrapper__adminlogin">
-                    {
-                        path === 'checkout' ?
-                            "Please login to checkout products" :
-                            "Login User"
-                    }
+                    Register New User
                 </div>
                 <div className="centerwrapper__section">
                     <input

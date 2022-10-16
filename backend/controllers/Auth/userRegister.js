@@ -27,7 +27,7 @@ const userRegister = async (req, res, next) => {
 
         if (!isEmpty(userResult)) {
             return res.status(400).json({
-                message: "User already exist",
+                message: "username or email already linked with other",
             });
         }
 

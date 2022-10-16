@@ -86,9 +86,15 @@ const Header = () => {
 
                         </>
                     ) : (
-                        <Link href="/login" passHref>
-                            <div className="navbar__item" onClick={hideMenuOnMobileClick}>Login</div>
-                        </Link>
+                        <>
+                            <Link href="/login" passHref>
+                                <div className="navbar__item" onClick={hideMenuOnMobileClick}>Login</div>
+                            </Link>
+                            <Link href="/register" passHref>
+                                <div className="navbar__item" onClick={hideMenuOnMobileClick}>Register</div>
+                            </Link>
+                        </>
+
                     )
                 }
 
